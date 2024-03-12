@@ -1,25 +1,14 @@
 from django.contrib import admin
-from .models import Article, Category
+from django.contrib.auth.admin import UserAdmin
+from .forms import Customuser_changeform, Customuser_creationform
+from django.contrib.auth import get_user_model
 
 
+@admin.register(get_user_model())
+class CustomAdmin(UserAdmin):
 
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('position', 'title', 'slug', 'parent','status')
-    list_filter = (['status'])
-    search_fields = ('title', 'slug')
-    prepopulated_fields = {'slug':('title',)}
-    
-admin.site.register(Category, CategoryAdmin)
+    list_display = ['username', 'password', 'phone' ]
+    add_form = Customuser_creationform
+    form =  Customuser_changeform
 
 
-class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'thumbnail_tag','slug', 'jpublish', 'status', 'category_to_str')
-    list_filter = ('publish', 'status')
-    search_fields = ('title', 'discription')
-    prepopulated_fields = {'slug':('title',)}
-    ordering =  ['status', 'publish']
-    actions = ["make_published", "make_drafted"]
-
-admin.site.register(Article, ArticleAdmin)
-
-# Register your models here.

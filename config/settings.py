@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     
     # My Apps
     
-    'account.apps.AccountConfig',
+    'Account.apps.AccountConfig',
     'article.apps.ArticleConfig',
     'comment.apps.CommentConfig',
 
