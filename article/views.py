@@ -17,19 +17,9 @@ class ArticleList(ListView):
         ClassView for Articles list page
     """
     # model = Article
-    global queryset
-    # declaring queryset global to avoid repeating the query
     template_name = 'article/home.html'
     context_object_name = 'articles'
     queryset = Article.objects.published()
-
-    def get_context_data(self, **kwargs):
-        '''for displaying recent posts'''
-
-        context = super().get_context_data(**kwargs)
-        context['recent'] = queryset[:7]
-        return context 
-
 
 #---------------------------------------------------------------------------------------------------------------------------------#
 

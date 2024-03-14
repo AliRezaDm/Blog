@@ -5,7 +5,7 @@ from .models import Category, Article
 def cat(request):
     context = {
         'categories': Category.objects.select_related('parent').prefetch_related('articles')\
-            .filter(is_parent = True, status = True)
+            .filter(position = 1, status = True)
     }
     return context
 
