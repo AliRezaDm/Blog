@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render, get_object_or_404
 from .models import Article, Category
 from django.views.generic import ListView, DetailView
@@ -7,10 +8,19 @@ from django.views.generic import ListView, DetailView
 
 class ArticleList(ListView):
  
+    global queryset
+    # delcaring queryset global to avoid repeating the query 
     # model = Article
     template_name = 'blog/home.html'
     context_object_name = 'articles'
     queryset = Article.objects.published()
+    
+    def get_context_data(self, **kwargs):
+        '''for displaying recent posts'''
+
+        context = super().get_context_data(**kwargs)
+        context['recent'] = queryset[:7]
+        return context 
 
 
 class ArticleDetail(DetailView):
