@@ -20,7 +20,7 @@ class CategoryManager(models.Manager):
 class Category(models.Model):
 
     parent = models.ForeignKey('self', default=None, null=True, blank=True, on_delete=models.SET_NULL, related_name='children', verbose_name='زیردسته')
-    title = models.CharField(max_length=200, verbose_name='عنوان دسته بندی‍')
+    title = models.CharField(max_length=200, verbose_name='عنوان دسته بندی')
     slug = models.SlugField(max_length=100, unique=True)
     status = models.BooleanField(default=True, verbose_name='وضعیت نمایش')
     position = models.IntegerField()
