@@ -4,7 +4,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 cryptography==42.0.3
 defusedxml==0.7.1
-decouple==0.0.7
+python-decouple==3.8
 Django==5.0.3
 django-allauth==0.61.1
 django-jazzmin==2.6.0
