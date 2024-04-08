@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
@@ -20,6 +21,11 @@ class ArticleList(ListView):
     template_name = 'article/home.html'
     context_object_name = 'articles'
     queryset = Article.objects.published()
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context =super().get_context_data(**kwargs)
+        context['recent'] = Article.objects.published()[:3]
+        return context 
 
 #---------------------------------------------------------------------------------------------------------------------------------#
 
