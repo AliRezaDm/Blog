@@ -13,7 +13,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>NIMIS | Blog Page</title>
+	<title>Blog </title>
 	
 	<!-- fonts files -->
 	<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -50,8 +50,8 @@
 	<link rel="stylesheet" href="{% static 'article/css/responsive.css'%}">
 
 	<!-- Favicons -->
-	<link rel="apple-touch-icon-precomposed" href="{% static 'article/images/apple-touch-icon-precomposed.png'%}">
-	<link rel="shortcut icon" type="image/ico" href="{% static 'article/images/favicon.ico'%}">
+	{% comment %} <link rel="apple-touch-icon-precomposed" href="#">
+	<link rel="shortcut icon" type="image/ico" href="#"> {% endcomment %}
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,15 +63,15 @@
   </head>
   <body>
     
-	<div class="header_top">
+	<div class="" style="padding-top: 20px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<div class="header_top_right floatright">
+					<div class="header_top_right floatleft" >
 						{% if request.user.is_authenticated %}
-							<p><a href="{% url "account_logout" %}">{% trans "logout" %}</a>
+							<p style="font-size:45px;"><a href="{% url "account_logout" %}"><i style="font-size:45px;" class="fa-solid fa-right-from-bracket"></i></a>
 						{% else %}
-							<p><a href="{% url "account_login" %}">{% trans "login" %}</a> / <a href="{% url "account_login" %}">{% trans "register" %}</a></p>
+							<p style="font-size:45px;"><a href="{% url "account_login" %}"><i style="font-size:45px;" class="fa-solid fa-right-to-bracket"></i></a> / <a href="{% url "account_login" %}"><i style="font-size:45px;" class="fa-sharp fa-solid fa-registered"></i></a></p>
 						{% endif %}
 					</div>
 				</div>
@@ -83,23 +83,19 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="header_left floatleft">
-						<a class="fa fa-search" href=""></a>
-						<input type="text" placeholder="search"/>
+						
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-5 col-xs-12">
 					<div class="header_center">
-						<a href="{% url 'article:home'%}"><img src="{% static "article/images/OIP.jpg" %}" alt="Site Logo" /></a>
+						{% comment %} <a href="{% url 'article:home'%}"><img src="#" alt="Site Logo" /></a> {% endcomment %}
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-xs-12">
 					<div class="header_right floatright">
-						<ul class="checkout">
-							<li><a href="checkout.html"><i class="fa fa-heart-o"></i>{% trans "wishlist" %}</a></li>
-							<li class="mobi_right_li"><a href="checkout.html"><i class="fa fa-shopping-cart"></i>{% trans "checklist" %}</a></li>
-						</ul>
+						
 						<div class="w_likes">
-							<span>3</span>
+							
 						</div>
 					</div>
 				</div>
@@ -126,8 +122,8 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="bread_box">
 						<ul class="breadcumb">
-							<li><a href="index.html">home <span>|</span></a></li>
-							<li class="active"><a href="">blog</a></li>
+							<li><a href="index.html"><span></span></a></li>
+							<li class="active"><a href=""></a></li>
 						</ul>
 					</div>
 				</div>
@@ -261,6 +257,7 @@
 	<script src="{% static 'article/js/rs-plugin/js/jquery.themepunch.revolution.min.js'%}"></script>
 	<script src="{% static 'article/js/rs-plugin/rs.home.js'%}"></script>
     <script src="{% static 'article/js/bootstrap.min.js'%}"></script>
+	<script src="https://kit.fontawesome.com/6f1997fe97.js" crossorigin="anonymous"></script>
 	<!--Opacity & Other IE fix for older browser-->
 	<!--[if lte IE 8]>
 		<script type="text/javascript" src="{% static 'article/js/ie-opacity-polyfill.js'%}"></script>
