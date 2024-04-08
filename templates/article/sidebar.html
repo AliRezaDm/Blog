@@ -13,7 +13,7 @@
             <h2>دسته بندی مقالات</h2>
             <div class="multi_line"></div>
             <ul id="blog_categories">
-                {% for category in categories %}
+                {% for category in cats %}
                     <li><a href="{{category.get_absolute_url}}">{{ category.title }}</a></li>
                 {% endfor %}
                 </ul>
