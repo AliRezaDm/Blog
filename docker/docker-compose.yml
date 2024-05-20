@@ -25,7 +25,7 @@ services:
     image: docker.hamincharkho.pw/databases/gui/pgadmin4:latest
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
-      PGADMIN_DEFAULT_PASSWORD: roozbehsarcheshme1381
+      PGADMIN_DEFAULT_PASSWORD: admin@admin
       PGADMIN_LISTEN_PORT: 80
     ports:
       - 15432:80
