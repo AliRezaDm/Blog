@@ -24,12 +24,15 @@ LOGOUT_REDIRECT_URL = 'login'
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ('SECRET_KEY',  'x+7!7j+1j=mr*wts-38u2_adr_-p^po92hd^=_au@yrvyrqdv@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(int(os.environ('DEBUG', 0 )))
 
 ALLOWED_HOSTS = []
+ALLOED_HOSTS_ENV = os.environ('ALLOWED_HOST')
+if ALLOED_HOSTS_ENV:
+    ALLOWED_HOSTS.extend(ALLOED_HOSTS_ENV.split(','))
 
 
 # Application definition
@@ -176,11 +179,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_URL = 'static/static'
+STATIC_ROOT = 'vol/web/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -189,8 +189,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My Configurations 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_ROOT = 'vol/web/media'
+MEDIA_URL = 'static/media/'
 
 # Custom Account Options 
 
